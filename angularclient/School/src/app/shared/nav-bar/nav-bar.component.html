@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light text-danger mb-3 fixed-top" >
+  <div class="container ml-2">
+    <a class="navbar-brand" routerLink="/students">
+      <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+    </a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="/students">Students</a>
+      </li>
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="/admin/course">Courses</a>
+      </li>
+      <li class="nav-item"  *ngIf="!user">
+        <a class="nav-link" routerLink="/user/login">Login</a>
+      </li>
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle
+           class="nav-link dropdown-toggle show" id="dropdown01"
+           data-toggle="dropdown"
+           aria-haspopup="true"
+           *ngIf="roleAdmin"
+           aria-expanded="false">Admin Menu</a>
+        <div ngbDropdownMenu class="dropdown-menu show" aria-labelledby="dropdown01">
+          <a class="dropdown-item" routerLink="/admin/course">Edit Courses</a>
+          <a class="dropdown-item" routerLink="/admin/user">User Admin</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

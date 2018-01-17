@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-6">
+    <app-course-list *ngIf="courses" [courses]="courses"
+                     (selectCourse)="selectCourse($event)"
+                     (deleteCourse)="deleteCourse($event)"
+                     [courseId]="courseId"></app-course-list>
+  </div>
+  <div class="col-6">
+    <app-course-edit [course]="editingCourse"
+                     (saveCourse)="saveCourse($event)"
+                     (addNewCourse)="addNewCourse($event)"></app-course-edit>
+  </div>
+</div>

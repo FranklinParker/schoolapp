@@ -1,0 +1,20 @@
+.card-header{
+  background: blue;
+  color: white;
+}
+.col1 {
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-bottom: -10px;
+}
+
+.flex-grow {
+  width: 112%;
+  height: 113%;
+  margin-left: -20px;
+  margin-top: -20px;
+  margin-bottom: 0px;
+
+}
+

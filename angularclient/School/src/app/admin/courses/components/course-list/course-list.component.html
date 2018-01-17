@@ -1,0 +1,45 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-header m-2">
+    <mat-form-field class="p-1 filter-control">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter Courses">
+    </mat-form-field>
+  </div>
+  <mat-table #table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef style="text-align:left;padding-left: 20px">Course Name</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="text-align:left" >
+        <button mat-button (click)="edit(element)" color="primary">
+          {{element.name}}</button>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="department">
+      <mat-header-cell *matHeaderCellDef style="text-align:left;">Course Department</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="text-align:left" >
+          {{element.department.name}}
+      </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef style="text-align:left"> Description</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="text-align:left">
+         {{element.description}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef style="text-align:center">Delete</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="text-align:center">
+        <button mat-button (click)="deleteById(element.id)" color="primary">
+          <i class="fa fa-trash" aria-hidden="true"></i></button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"
+             [ngClass]="{'highlight': courseId === row.id}"
+             (click)="rowClicked(row)"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>
